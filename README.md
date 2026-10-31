@@ -6,17 +6,11 @@ On a modifié le dictionnaire que l'IAG nous proposé, on a suppprimé les attri
 MLD :
 
 Auteur =(ID_auteur, Nom)
-
 Editeur =(ID_editeur, nom_editeur)
-
 Realisateur =(ID_Realisateur, Nom_Realisateur)
-
 Genre =(ID_genre, genre)
-
 Employe =(ID_employe, nom_employe, prenom_employe, date_embauche, role_employe, #ID_anime)
-
 Prestataire =(ID_entreprise, specialite, nom_prestataire)
-
 Diffuseur =(ID_diffuseur, nom_diffuseur, type_diffuseur, date_debut_droit, date_fin_diffusion, montant_contrat)
 
 Manga = (ID_manga, Titre, Nombre_de_Tomes, Date_de_publication, #ID_auteur #ID_editeur) 
