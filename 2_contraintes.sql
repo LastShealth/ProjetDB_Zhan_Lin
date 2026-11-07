@@ -1,65 +1,3 @@
--- ============================================================
--- Fichier : 2_contraintes.sql
--- Description : Contraintes de validation / règles métiers
--- À exécuter APRÈS 1_tables.sql (création des tables)
--- ============================================================
-
--- juste des lettres, espaces et tirets
-ALTER TABLE Genre
-    ADD CONSTRAINT ID_genre_format
-    CHECK (genre REGEXP '^[A-Za-zÀ-ÿ -]{1,67}$');
-
--- rôle non vide
-ALTER TABLE Participer_tache
-    ADD CONSTRAINT ID_pt_role_non_vide
-    CHECK (TRIM(role_specifique) <> '');
-
--- nom non vide
-ALTER TABLE Auteur
-    ADD CONSTRAINT ID_auteur_nom_non_vide
-    CHECK (TRIM(Nom) <> '');
-
--- nom non vide
-ALTER TABLE Editeur
-    ADD CONSTRAINT ID_editeur_nom_non_vide
-    CHECK (TRIM(nom_editeur) <> '');
-
--- nom non vide
-ALTER TABLE Realisateur
-    ADD CONSTRAINT ID_realisateur_nom_non_vide
-    CHECK (TRIM(Nom_Realisateur) <> '');
-
--- nom non vide
-ALTER TABLE Employe
-    ADD CONSTRAINT ID_employe_noms_non_vides
-    CHECK (TRIM(nom_employe) <> '' AND TRIM(prenom_employe) <> '');
-
--- nom non vide
-ALTER TABLE Prestataire
-    ADD CONSTRAINT ID_prestataire_nom_non_vide
-    CHECK (TRIM(nom_prestataire) <> '');
-
--- nom non vide
-ALTER TABLE Diffuseur
-    ADD CONSTRAINT ID_diffuseur_nom_non_vide
-    CHECK (TRIM(nom_diffuseur) <> '');
-
--- titre non vide
-ALTER TABLE Anime
-    ADD CONSTRAINT ID_anime_titre_non_vide
-    CHECK (TRIM(titre_anime) <> '');
-
--- titre non vide
-ALTER TABLE Episode
-    ADD CONSTRAINT ID_episode_titre_non_vide
-    CHECK (TRIM(titre_episode) <> '');    
-
--- titre non vide
-ALTER TABLE Manga
-    ADD CONSTRAINT ID_manga_titre_non_vide
-    CHECK (TRIM(Titre) <> '');
-
-
 
 -- nombre de tomes > 0
 ALTER TABLE Manga
@@ -106,15 +44,6 @@ ALTER TABLE Employe
 ALTER TABLE Employe
     ADD CONSTRAINT ID_employe_date_embauche_plage
     CHECK (date_embauche IS NULL OR date_embauche BETWEEN '1950-01-01' AND CURRENT_DATE);
-
-
--- specialité check
-ALTER TABLE Prestataire
-    ADD CONSTRAINT ID_prestataire_specialite_liste
-    CHECK (specialite IN ('Animation', 'Doublage', 'Musique', 'Sound Design',
-                          'Effets spéciaux', 'Sous-titrage', 'Marketing',
-                          'Post-production', 'Graphisme'));
-
 
 
 -- type_diffuseur check
