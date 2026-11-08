@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS kogetsu_animation;
+USE kogetsu_animation;
 CREATE TABLE Auteur (
     ID_auteur INT PRIMARY KEY,
     Nom VARCHAR(100) NOT NULL
@@ -87,8 +89,8 @@ CREATE TABLE Episode (
     ID_episode_precedent INT,
     CONSTRAINT ID_episode_saison FOREIGN KEY (ID_saison) REFERENCES Saison(ID_saison) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT ID_episode_precedent FOREIGN KEY (ID_episode_precedent) REFERENCES Episode(ID_episode) ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT ID_episode_saison_num UNIQUE (ID_saison, numero_episode),
-    CONSTRAINT ID_episode_precedent_check CHECK (ID_episode_precedent IS NULL OR ID_episode_precedent <> ID_episode)
+    CONSTRAINT ID_episode_saison_num UNIQUE (ID_saison, numero_episode)
+
 );
 
 CREATE TABLE Depense (
