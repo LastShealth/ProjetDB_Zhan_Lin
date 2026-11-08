@@ -1,3 +1,34 @@
+USE kogetsu_animation;
+
+-- ============================================================
+-- 0. DONNÉES DE BASE (référencées par la suite du fichier)
+--    Éditeurs 1-4, genres 1-6, prestataires 1-3, diffuseurs 1-3
+-- ============================================================
+
+INSERT INTO Editeur (ID_editeur, nom_editeur) VALUES
+(1, 'Kadokawa'),
+(2, 'Shueisha'),
+(3, 'Square Enix'),
+(4, 'Akita Shoten');
+
+INSERT INTO Genre (ID_genre, genre) VALUES
+(1, 'Aventure'),
+(2, 'Fantasy'),
+(3, 'Action'),
+(4, 'Surnaturel'),
+(5, 'Drame'),
+(6, 'Horreur');
+
+INSERT INTO Prestataire (ID_entreprise, specialite, nom_prestataire) VALUES
+(1, 'Animation', 'Yostar'),
+(2, 'Animation', 'Graphinica'),
+(3, 'Animation', 'Half HP Studio');
+
+INSERT INTO Diffuseur (ID_diffuseur, nom_diffuseur, type_diffuseur, date_debut_droit, date_fin_diffusion, montant_contrat) VALUES
+(1, 'Crunchyroll', 'Streaming', '2012-01-01', '2030-12-31', 15000000.00),
+(2, 'Netflix',     'Streaming', '2015-01-01', '2030-12-31', 20000000.00),
+(3, 'TV Tokyo',    'TV',        '1990-01-01', '2030-12-31',  8000000.00);
+
 -- ============================================================
 -- 1. NOUVEAUX AUTEURS & ÉDITEURS
 -- ============================================================
@@ -422,3 +453,8 @@ INSERT INTO Depense (ID_depense, date_depense_production, montant, categorie_dep
 (9, '2006-08-01', 120000.00, 'Salaires', 'Doublage Seiyuu (Light & L)', 8),
 (10, '1997-12-10', 300000.00, 'Musique', 'Session orchestre live Cowboy Bebop', 9),
 (11, '2023-08-20', 150000.00, 'Marketing', 'Avant-première spéciale Frieren au ciné', 13);
+
+INSERT INTO Manga (ID_manga, Titre, Nombre_de_Tomes, Date_de_publication, ID_auteur, ID_editeur) VALUES (14, 'Chainsaw Man', 20, '2018-12-03', NULL, 2);
+INSERT INTO Prestataire (ID_entreprise, specialite, nom_prestataire) VALUES (4, 'Doublage', 'Studio Mausu');
+INSERT INTO Anime (ID_anime, titre_anime, format, date_debut_prod, budget, etat, ID_manga, ID_Realisateur) VALUES (14, 'Hoshi no Kakera', 'Film', '2024-05-01', 1000000.00, 'En production', NULL, 5);
+INSERT INTO Depense (ID_depense, date_depense_production, montant, categorie_depense, motif, ID_anime) VALUES (12, '2024-09-01', 1500000.00, 'Animation', 'Dépassement fabrication', 14);
