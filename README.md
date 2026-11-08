@@ -162,7 +162,7 @@ Le **plan C** est le plus efficace, environ 1,65 fois moins coûteux que le plan
 1. **Descendre les sélections** avant les jointures, on évite les gros produits comme Employe ⋈ Participer_tache sur toutes les lignes (36 instructions) et on ne joint que des lignes utiles.
 2. **Joindre en premier la sélection la plus sélective.** Ici, la sélection sur le rôle garde 3 employés sur 6 (50 %), alors que la sélection sur l'état garde 8 animes sur 9 (89 %) et ne filtre presque rien. Il vaut donc mieux joindre d'abord `σ(Employe)` avec `Participer_tache` (plan C) que `σ(Anime)` (plan B). Avec un autre jeu de données, où peu d'animes seraient terminés, l'ordre optimal pourrait s'inverser.
 
-** REMARQUE** : dans le fichier contrainte ,les contraintes « pas dans le futur » utilisent la date fixe '2026-11-08', car MySQL refuse CURRENT_DATE dans un CHECK
+**REMARQUE** : dans le fichier contrainte ,les contraintes « pas dans le futur » utilisent la date fixe '2026-11-08', car MySQL refuse CURRENT_DATE dans un CHECK
 
 
 
