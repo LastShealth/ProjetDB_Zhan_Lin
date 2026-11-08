@@ -59,7 +59,7 @@ Diffuser = (#ID_anime,#ID_diffuseur)
 SELECT DISTINCT e.nom_employe, e.prenom_employe, a.titre_anime
 FROM Employe e
 JOIN Participer_tache p ON p.ID_employe = e.ID_employe
-JOIN Anime a            ON a.ID_anime   = p.ID_anime
+JOIN Anime a ON a.ID_anime = p.ID_anime
 WHERE e.role_employe = 'Compositeur'
   AND a.etat = 'Terminé';
 ```
