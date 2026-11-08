@@ -1,4 +1,3 @@
-
 -- nombre de tomes > 0
 ALTER TABLE Manga
     ADD CONSTRAINT ID_manga_tomes_positif
@@ -7,8 +6,7 @@ ALTER TABLE Manga
 -- date qui existe et non dans le futur
 ALTER TABLE Manga
     ADD CONSTRAINT ID_manga_date_plage
-    CHECK (Date_de_publication IS NULL OR Date_de_publication BETWEEN '1867-01-01' AND CURRENT_DATE);
-
+    CHECK (Date_de_publication IS NULL OR Date_de_publication BETWEEN '1867-01-01' and '2026-11-08');
 
 
 -- format check
@@ -29,7 +27,7 @@ ALTER TABLE Anime
 -- date qui existe et non dans le futur
 ALTER TABLE Anime
     ADD CONSTRAINT ID_anime_date_prod_plage
-    CHECK (date_debut_prod IS NULL OR date_debut_prod BETWEEN '1950-01-01' AND CURRENT_DATE);
+    CHECK (date_debut_prod IS NULL OR date_debut_prod BETWEEN '1950-01-01' and '2026-11-08');
 
 
 
@@ -43,7 +41,7 @@ ALTER TABLE Employe
 -- date qui existe et non dans le futur
 ALTER TABLE Employe
     ADD CONSTRAINT ID_employe_date_embauche_plage
-    CHECK (date_embauche IS NULL OR date_embauche BETWEEN '1950-01-01' AND CURRENT_DATE);
+    CHECK (date_embauche IS NULL OR date_embauche BETWEEN '1950-01-01' AND '2026-11-08');
 
 
 -- type_diffuseur check
@@ -65,7 +63,7 @@ ALTER TABLE Diffuseur
 -- date qui existe et  non dans le futur
 ALTER TABLE Diffuseur
     ADD CONSTRAINT ID_diffuseur_date_debut_plage
-    CHECK (date_debut_droit IS NULL OR date_debut_droit BETWEEN '1950-01-01' AND CURRENT_DATE);
+    CHECK (date_debut_droit IS NULL OR date_debut_droit BETWEEN '1950-01-01' AND '2026-11-08');
 
 
 
@@ -77,7 +75,7 @@ ALTER TABLE Saison
 -- date qui existe et non dans le futur
 ALTER TABLE Saison
     ADD CONSTRAINT ID_saison_date_plage
-    CHECK (date_sortie_saison IS NULL OR date_sortie_saison BETWEEN '1950-01-01' AND CURRENT_DATE);
+    CHECK (date_sortie_saison IS NULL OR date_sortie_saison BETWEEN '1950-01-01' AND '2026-11-08');
 
 
 
@@ -94,12 +92,7 @@ ALTER TABLE Episode
 -- date qui existe et non dans le futur     
 ALTER TABLE Episode
     ADD CONSTRAINT ID_episode_date_plage
-    CHECK (date_episode IS NULL OR date_episode BETWEEN '1950-01-01' AND CURRENT_DATE);
-
--- ID_episode_precedent_pas_self ne peut pas s'auto refere, car un episode ne peut pas être son propre épisode précédent
-ALTER TABLE Episode
-    ADD CONSTRAINT ID_episode_precedent_pas_self
-    CHECK (ID_episode_precedent IS NULL OR ID_episode_precedent <> ID_episode);
+    CHECK (date_episode IS NULL OR date_episode BETWEEN '1950-01-01' AND '2026-11-08');
 
 
 
@@ -118,7 +111,7 @@ ALTER TABLE Depense
 -- date qui existe et non dans le futur
 ALTER TABLE Depense
     ADD CONSTRAINT ID_depense_date_plage
-    CHECK (date_depense_production IS NULL OR date_depense_production BETWEEN '1950-01-01' AND CURRENT_DATE);
+    CHECK (date_depense_production IS NULL OR date_depense_production BETWEEN '1950-01-01' AND '2026-11-08');
 
 
 
